@@ -1,0 +1,73 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SCHOLA</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f5ff; 
+            }
+            header {
+                background-color: #2c3e50; 
+                color: #fff;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>SCHOLA</h1>
+        </header>
+        <div class="container">
+            <div class="profile">
+                <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+                <img id="profileImg" src="#" alt="Profile Picture">
+                <div class="username" id="username">Username</div>
+            </div>
+            <div class="buttons">
+                <button>Schedule</button>
+                <button>Assignments & Tests</button>
+            </div>
+            <div class="button">
+                <button>Setting</button>
+                <button>Home</button>
+                <button>Notification</button>
+            </div>
+        </div>
+    
+        <script>
+
+            document.getElementById('profilePicInput').addEventListener('change', function(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImg').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+    
+      
+            document.getElementById('username').addEventListener('click', function() {
+                var newUsername = prompt("Enter new username:");
+                if (newUsername !== null && newUsername.trim() !== "") {
+                    document.getElementById('username').textContent = newUsername;
+                }
+            });
+        </script>
+    </body>
+</head>
+</html>
