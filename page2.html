@@ -88,55 +88,60 @@
     <header>
         SCHOLA
     </header>
-    <div class="container">
-        <div class="profile">
-            <label for="profilePicInput">
-                <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
-                <img id="profileImg" src="default_profile.jpg" alt="Profile Picture">
-            </label>
-            <div class="username" id="username">Username</div>
-            <button class="change-profile-btn" id="changeProfileBtn">Change Profile</button>
-        </div>
-        <div class="button-container">
-            <div class="buttons">
-                <button>Schedule</button>
-            </div>
-            <div class="buttons">
-                <button>Assignments & Tests</button>
-                <style>
-                .button-container{
-                    margin-bottom: 150px
-                }
-                </style>
-            </div>
-        </div>
+    <body>
+        <img src="logo.PNG" class="logo">
+    <style>
+       .logo {
+        position: fixed;
+        height: auto;
+        top: 0px;
+        left: 760px;
+        width: 90px;
+    }
+    </style>
+    </div>
+</body>
+<div class="container">
+    <div class="profile">
+        <label for="profilePicInput">
+            <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+            <img id="profileImg" src="default_profile.jpg" alt="Profile Picture">
+        </label>
+        <div class="username" id="username">Username</div>
+        <button class="change-profile-btn" id="changeProfileBtn">Change Profile</button>
+    </div>
+    <div class="button-container">
         <div class="buttons">
-            <button>Settings</button>
-            <button>Home</button>
-            <button>Notifications</button>
+            <button onclick="window.location.href = 'page4.html';">Schedule</button>
+        </div>
+        <div class="buttons" style="margin-top: 30px;"> 
+            <button onclick="window.location.href = 'page3.html';">Assignments & Tests</button>
         </div>
     </div>
+    <div class="buttons" style="margin-top: 30px;"> 
+        <button>Settings</button>
+        <button>Home</button>
+        <button>Notifications</button>
+    </div>
+</div>
 
-    <script>
-        document.getElementById('profilePicInput').addEventListener('change', function(event) {
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('profileImg').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        });
+<script>
+    document.getElementById('profilePicInput').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profileImg').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
 
-        document.getElementById('username').addEventListener('click', function() {
-            var newUsername = prompt("Enter new username:");
-            if (newUsername !== null && newUsername.trim() !== "") {
-                document.getElementById('username').textContent = newUsername;
-            }
-        });
-
-        document.getElementById('changeProfileBtn').addEventListener('click', function() {
-            document.getElementById('profilePicInput').click();
-        });
-    </script>
-</body>
-</html>
+    document.getElementById('username').addEventListener('click', function() {
+        var newUsername = prompt("Enter new username:");
+        if (newUsername !== null && newUsername.trim() !== "") {
+            document.getElementById('username').textContent = newUsername;
+        }
+    });
+    document.getElementById('changeProfileBtn').addEventListener('click', function() {
+        document.getElementById('profilePicInput').click();
+    });
+</script>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOLA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #555;
+        }
+        header {
+            background-color: #526eb9;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        } 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .picture-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #uploadedPicture {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .buttons {
+            text-align: center;
+        }
+        #pictureInput {
+            display: none;
+        }
+        .upload-button, .back-button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .upload-button:hover, .back-button:hover {
+            background-color: #2980b9;
+        }
+        .change-save-buttons {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        SCHOLA
+    </header>
+
+    <img src="logo.PNG" class="logo">
+    <style>
+       .logo {
+        position: fixed;
+        height: auto;
+        top: 0px;
+        left: 760px;
+        width: 90px;
+    }
+</style>
+    <div class="container">
+        <div class="picture-container" id="pictureContainer">
+           
+            <img id="uploadedPicture" src="https://via.placeholder.com/400" alt="Uploaded Picture">
+        </div>
+        <div class="buttons">
+            <input type="file" id="pictureInput" accept="image/*">
+            <label for="pictureInput" class="upload-button">Upload Picture</label>
+            <div class="change-save-buttons">
+                <button id="changePictureBtn" class="upload-button">Change Picture</button>
+                <button id="savePictureBtn" class="upload-button">Save Picture</button>
+            </div>
+        </div>
+        <button id="backButton" class="back-button">Back</button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+
+        function isSunday() {
+            const today = new Date();
+            return today.getDay() === 0; 
+        }
+
+    
+        function setButtonVisibility() {
+            const changeSaveButtons = document.querySelector('.change-save-buttons');
+
+            if (isSunday()) {
+     
+                changeSaveButtons.style.display = 'block';
+            } else {
+
+                changeSaveButtons.style.display = 'none';
+            }
+        }
+
+        setButtonVisibility();
+        document.getElementById('pictureInput').addEventListener('change', function() {
+            const uploadedPicture = document.getElementById('uploadedPicture');
+            const file = this.files[0];
+
+            if (file) {
+                uploadedPicture.src = URL.createObjectURL(file);
+                setButtonVisibility();
+            }
+        });
+        document.getElementById('changePictureBtn').addEventListener('click', function() {
+    
+            document.getElementById('pictureInput').click();
+        });
+        document.getElementById('savePictureBtn').addEventListener('click', function() {
+            alert('Picture saved successfully.');
+        });
+
+        // Event listener for the Back button
+        document.getElementById('backButton').addEventListener('click', function() {
+            // Redirect to page2.html
+            window.location.href = 'page2.html';
+        });
+    </script>
+</body>
+</html>
