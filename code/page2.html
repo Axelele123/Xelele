@@ -99,7 +99,13 @@
         </div>
         <div class="button-container">
             <div class="buttons">
-                <button>Schedule</button>
+                <button id="page3Button">Schedule</button>
+                <script>
+                    const page3Button = document.getElementById('page3Button');
+                    page3Button.addEventListener('click', function() {
+                      window.location.href = 'page3.html';
+                    });
+                  </script>
             </div>
             <div class="buttons">
                 <button>Assignments & Tests</button>
