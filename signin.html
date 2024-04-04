@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOLA - Sign Up</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://budiutama-jogja.sch.id/images/facilities/facilities-20200611-041452.jpg);
+        }
+        header {
+            background-color: #526eb9;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .container {
+            width: 95%;
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .login-link {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            background-color: #3498db; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .login-link:hover {
+            background-color: #29b965;
+            background-image: url('signupbtn.png'); 
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        SCHOLA
+    </header>
+    <div class="container">
+        <h2 style="text-align: center; font-size: 24px; font-weight: bold;">Sign Up for SCHOLA</h2>
+        <p style="text-align: center; font-size: 18px;">Create an account to get started</p>
+        <form id="signupForm" onsubmit="storeCredentials(event)">
+            <input type="text" id="signupUsername" placeholder="Username" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit" class="login-link">Sign Up</button>
+            <p style="text-align: center; margin-top: 20px;">Already have an account? <a href="login.html" class="login-link">Log in</a></p>
+        </form>
+    </div>
+    <script>
+        function storeCredentials(event) {
+            event.preventDefault();
+            var username = document.getElementById('signupUsername').value;
+            var password = document.getElementById('signupPassword').value;
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            alert("Sign up successful. You can now log in.");
+            window.location.href = "login.html"; 
+        }
+    </script>
+</body>
+</html>

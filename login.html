@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOLA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://budiutama-jogja.sch.id/images/facilities/facilities-20200611-041452.jpg);
+        }
+        header {
+            background-color: #526eb9;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 95%;
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+        .signup-link {
+            color: blue;
+            text-decoration: underline;
+        }
+        .login-link {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            background-color: #3498db; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-align: center;
+        }
+        .login-link:hover {
+            background-color: #29b965;
+            background-image: url('loginbtn.png'); 
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SCHOLA</h1>
+    </header>
+    <img src="logo.PNG" class="logo">
+    <style>
+       .logo {
+        position: fixed;
+        height: auto;
+        top: 0px;
+        left: 760px;
+        width: 90px;
+    }
+    </style>
+    <div class="container">
+        <h2 style="text-align: center;">Welcome to SCHOLA</h2>
+        <p style="text-align: center; font-size: 18px;">Please log in to continue</p>
+        <form id="loginForm" onsubmit="validateLoginForm(event)">
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" class="login-link">Login</button>
+            <p style="text-align: center; margin-top: 20px;">Don't have an account? <a href="signin.html" class="signup-link">Sign up</a></p>
+        </form>
+    </div>
+    <script>
+        function validateLoginForm(event) {
+            event.preventDefault(); 
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            var storedUsername = localStorage.getItem('username');
+            var storedPassword = localStorage.getItem('password');
+            
+            if (!storedUsername || !storedPassword) {
+                alert("You must sign up first.");
+                return;
+            }
+            if (username === storedUsername && password === storedPassword) {
+                window.location.href = "page2.html"; 
+            } else {
+                alert("Incorrect username or password.");
+            }
+        }
+    </script>
+</body>
+</html>
