@@ -9,11 +9,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url(https://budiutama-jogja.sch.id/images/facilities/facilities-20200610-140450.jpg);
-            background-size: cover;
-            background-position: center;
+            background-image: url('4.jpg');
+            background-size: 100%;
+            background-position: center bottom -150px;
             background-repeat: no-repeat;
             color: #555;
+            background-attachment: fixed;
         }
         header {
             background-color:  #526eb9;
@@ -22,65 +23,150 @@
             text-align: center;
             font-size: 36px;
             font-weight: bold;
+            position: fixed; /* Header permanently attached */
+            width: 100%; /* Full width */
+            top: 0; /* At the top */
+            background-attachment: fixed;
         }
-        .container {
-            max-width: 800px;
-            margin: 150px auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        .profile-container {
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .profile {
             text-align: center;
             margin-bottom: 20px;
         }
         #profileImg {
-            max-width: 100%;
-            max-height: 200px; /* Adjust the maximum height as needed */
+            max-width: 150px; /* Adjust size */
+            max-height: 150px; /* Adjust size */
             border-radius: 50%;
             border: 5px solid #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .username {
-            font-size: 24px;
+            font-size: 18px; /* Adjust size */
             margin-top: 10px;
+        }
+        .change-profile-btn {
+            padding: 12px 24px; /* Adjust size */
+            margin-top: 5px;
+            border: none;
+            border-radius: 8px; /* Adjust size */
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 20px; /* Adjust size */
+        }
+        .change-profile-btn:hover {
+            background-color: #ca782b;
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around; /* Center and evenly space the buttons */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .buttons {
             text-align: center;
             margin-bottom: 20px;
         }
-        .buttons button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 18px;
+        .schedule-btn {
+            padding: 100px 174px; /* Adjust size */
+            margin: 0 10px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
             border: none;
-            border-radius: 5px;
-            background-color: #3498db;
+            border-radius: 10px; /* Adjust size */
+            background-image: url('schedulebtn.png');
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            background-size: cover;
         }
-        .buttons button:hover {
-            background-color: #2980b9;
+        .schedule-btn:hover {
+            background-color: #29b96a;
         }
-        .button-container {
+        .assignment-btn {
+            padding: 100px 174px; /* Adjust size */
+            margin: 0 10px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
+            border: none;
+            border-radius: 10px; /* Adjust size */
+            background-image: url('assigntmentsbtn.png');
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-size: cover;
+        }
+        .assignment-btn:hover {
+            background-color: #b98729;
+        }
+        .right-buttons-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
         }
-        .change-profile-btn {
-            background-color: #e67e22;
-            margin-top: 10px;
-            padding: 5px 10px;
+        .right-buttons-container .buttons {
+            margin-bottom: 10px;
+        }
+        .settings-btn {
+            background-image: url('settingbtn.png');
+            background-size: cover;
+            padding: 20px 35px; 
+            margin: 5px; 
+            font-size: 20px; 
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; 
+            background-color: #333b41;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .change-profile-btn:hover {
-            background-color: #d35400;
+        .settings-btn:hover {
+            background-color: #2980b9;
+        }
+        .home-btn {
+            background-image: url('homebtn.png');
+            background-size: cover;
+            padding: 20px 35px; /* Adjust size */
+            margin: 5px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
+            border: none;
+            border-radius: 8px; /* Adjust size */
+            background-color: #333b41;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .home-btn:hover {
+            background-color: #2980b9;
+        }
+        .notifications-btn {
+            background-image: url('notifhistorybtn.png');
+            background-size: cover;
+            padding: 20px 35px; /* Adjust size */
+            margin: 5px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
+            border: none;
+            border-radius: 8px; /* Adjust size */
+            background-color: #333b41;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .notifications-btn:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -88,60 +174,55 @@
     <header>
         SCHOLA
     </header>
-    <body>
-        <img src="logo.PNG" class="logo">
-    <style>
-       .logo {
-        position: fixed;
-        height: auto;
-        top: 0px;
-        left: 760px;
-        width: 90px;
-    }
-    </style>
+    <div class="profile-container">
+        <div class="profile">
+            <label for="profilePicInput">
+                <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+                <img id="profileImg" src="default_profile.jpg" alt="Profile Picture">
+            </label>
+            <div class="username" id="username">Username</div>
+            <button class="change-profile-btn" id="changeProfileBtn">Change Profile</button>
+        </div>
     </div>
-</body>
-<div class="container">
-    <div class="profile">
-        <label for="profilePicInput">
-            <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
-            <img id="profileImg" src="default_profile.jpg" alt="Profile Picture">
-        </label>
-        <div class="username" id="username">Username</div>
-        <button class="change-profile-btn" id="changeProfileBtn">Change Profile</button>
-    </div>
-    <div class="button-container">
+    <div class="buttons-container">
         <div class="buttons">
-            <button onclick="window.location.href = 'page4.html';">Schedule</button>
+            <button class="schedule-btn" onclick="window.location.href = 'page4.html';"></button>
         </div>
-        <div class="buttons" style="margin-top: 30px;"> 
-            <button onclick="window.location.href = 'page3.html';">Assignments & Tests</button>
+        <div class="buttons"> 
+            <button class="assignment-btn" onclick="window.location.href = 'page3.html';"></button>
         </div>
     </div>
-    <div class="buttons" style="margin-top: 30px;"> 
-        <button>Settings</button>
-        <button>Home</button>
-        <button>Notifications</button>
+    <div class="right-buttons-container">
+        <div class="buttons"> 
+            <button class="settings-btn"></button>
+        </div>
+        <div class="buttons"> 
+            <button class="home-btn"></button>
+        </div>
+        <div class="buttons"> 
+            <button class="notifications-btn"></button>
+        </div>
     </div>
-</div>
 
-<script>
-    document.getElementById('profilePicInput').addEventListener('change', function(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('profileImg').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
+    <script>
+        document.getElementById('profilePicInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profileImg').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
 
-    document.getElementById('username').addEventListener('click', function() {
-        var newUsername = prompt("Enter new username:");
-        if (newUsername !== null && newUsername.trim() !== "") {
-            document.getElementById('username').textContent = newUsername;
-        }
-    });
-    document.getElementById('changeProfileBtn').addEventListener('click', function() {
-        document.getElementById('profilePicInput').click();
-    });
-</script>
+        document.getElementById('username').addEventListener('click', function() {
+            var newUsername = prompt("Enter new username:");
+            if (newUsername !== null && newUsername.trim() !== "") {
+                document.getElementById('username').textContent = newUsername;
+            }
+        });
+        document.getElementById('changeProfileBtn').addEventListener('click', function() {
+            document.getElementById('profilePicInput').click();
+        });
+    </script>
+</body>
+</html>

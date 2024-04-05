@@ -10,11 +10,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://th.bing.com/th/id/R.acec0d9d980272d71bda4b76743f341d?rik=TUFDsK1OC6xMeQ&riu=http%3a%2f%2fbudiutama-jogja.sch.id%2fimages%2ffacilities%2ffacilities-20200610-140309.jpg&ehk=yspAamK6gF3owAJD3C1a47b89Bd9PUIlVcLTX7mxE%2bk%3d&risl=&pid=ImgRaw&r=0');
+            background-image: url('10.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center bottom -60px;
             background-repeat: no-repeat;
             color: #2c7e7a;
+            overflow: hidden;
         }
         header {
             background-color: #526eb9;
@@ -26,7 +27,7 @@
         }
         .container {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 400px auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
@@ -66,19 +67,52 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        /* Button Styles */
         .buttons button {
             padding: 10px 20px;
             margin: 5px;
             font-size: 18px;
             border: none;
             border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #markDateBtn {
             background-color: #3498db;
+            color: #fff;
+        }
+        #markDateBtn:hover {
+            background-color: #b96329;
+        }
+        #removeMarkBtn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        #removeMarkBtn:hover {
+            background-color: #b91e0d;
+        }
+        #submitBtn {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+        #submitBtn:hover {
+            background-color: #27ae60;
+        }
+        #backBtn {
+            background-image: url('homebtn.png');
+            background-size: cover;
+            padding: 20px 35px; /* Adjust size */
+            margin: 5px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
+            border: none;
+            border-radius: 8px; /* Adjust size */
+            background-color: #333b41;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .buttons button:hover {
-            background-color: #2980b9;
+        #backBtn:hover {
+            background-color: #8e44ad;
         }
     </style>
 </head>
@@ -104,7 +138,7 @@
             <button id="markDateBtn">Mark Date</button>
             <button id="removeMarkBtn">Remove Marking</button>
             <button id="submitBtn">Submit</button>
-            <button id="backBtn">Back</button>
+            <button id="backBtn"></button>
         </div>
         <div id="settingsModal" class="modal">
             <div class="modal-content">
@@ -200,14 +234,12 @@
                 const now = new Date();
                 const timeDifference = dateObj.getTime() - now.getTime();
                 if (timeDifference > 0) {
-                    const timeToNotify = timeDifference / (1000 * 60 * 60); // Convert milliseconds to hours
+                    const timeToNotify = timeDifference / (1000 * 60 * 60); 
                     setTimeout(() => {
                         alert(`Reminder: You have a work to do on ${date}`);
                     }, timeToNotify);
                 }
             });
-
-            // Get notification time from settings
             const notificationTime = document.getElementById('notificationTime').value;
             if (notificationTime) {
                 const notificationHour = parseInt(notificationTime.split(':')[0], 10);
@@ -230,7 +262,6 @@
             }
         });
 
-        // Go back to page 2
         document.getElementById('backBtn').addEventListener('click', function() {
             window.location.href = 'page2.html';
         });
