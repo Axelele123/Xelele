@@ -26,7 +26,6 @@
             position: fixed; /* Header permanently attached */
             width: 100%; /* Full width */
             top: 0; /* At the top */
-            background-attachment: fixed;
         }
         .profile-container {
             position: fixed;
@@ -80,7 +79,7 @@
             margin-bottom: 20px;
         }
         .schedule-btn {
-            padding: 100px 174px; /* Adjust size */
+            padding: 93px 160px; /* Adjust size */
             margin: 0 10px; /* Adjust size */
             font-size: 20px; /* Adjust size */
             border: none;
@@ -95,7 +94,7 @@
             background-color: #29b96a;
         }
         .assignment-btn {
-            padding: 100px 174px; /* Adjust size */
+            padding: 93px 160px; /* Adjust size */
             margin: 0 10px; /* Adjust size */
             font-size: 20px; /* Adjust size */
             border: none;
@@ -121,14 +120,12 @@
             margin-bottom: 10px;
         }
         .settings-btn {
-            background-image: url('settingbtn.png');
-            background-size: cover;
-            padding: 20px 35px; 
-            margin: 5px; 
-            font-size: 20px; 
+            padding: 20px 30px; /* Adjust size */
+            margin: 5px; /* Adjust size */
+            font-size: 20px; /* Adjust size */
             border: none;
-            border-radius: 8px; 
-            background-color: #333b41;
+            border-radius: 8px; /* Adjust size */
+            background-color: #3498db;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -137,14 +134,12 @@
             background-color: #2980b9;
         }
         .home-btn {
-            background-image: url('homebtn.png');
-            background-size: cover;
-            padding: 20px 35px; /* Adjust size */
+            padding: 20px 30px; /* Adjust size */
             margin: 5px; /* Adjust size */
             font-size: 20px; /* Adjust size */
             border: none;
             border-radius: 8px; /* Adjust size */
-            background-color: #333b41;
+            background-color: #3498db;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -153,14 +148,12 @@
             background-color: #2980b9;
         }
         .notifications-btn {
-            background-image: url('notifhistorybtn.png');
-            background-size: cover;
-            padding: 20px 35px; /* Adjust size */
+            padding: 20px 30px; /* Adjust size */
             margin: 5px; /* Adjust size */
             font-size: 20px; /* Adjust size */
             border: none;
             border-radius: 8px; /* Adjust size */
-            background-color: #333b41;
+            background-color: #3498db;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -174,7 +167,7 @@
     <header>
         SCHOLA
     </header>
-    <div class="container">
+    <div class="profile-container">
         <div class="profile">
             <label for="profilePicInput">
                 <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
@@ -183,35 +176,36 @@
             <div class="username" id="username">Username</div>
             <button class="change-profile-btn" id="changeProfileBtn">Change Profile</button>
         </div>
-        <div class="button-container">
-            <div class="buttons">
-                <button>Schedule</button>
-            </div>
-            <div class="buttons">
-                <button>Assignments & Tests</button>
-                <style>
-                .button-container{
-                    margin-bottom: 150px
-                }
-                </style>
-            </div>
-        </div>
+    </div>
+    <div class="buttons-container">
         <div class="buttons">
-            <button>Settings</button>
-            <button>Home</button>
-            <button>Notifications</button>
+            <button class="schedule-btn" onclick="window.location.href = 'page4.html';"></button>
+        </div>
+        <div class="buttons"> 
+            <button class="assignment-btn" onclick="window.location.href = 'page3.html';"></button>
+        </div>
+    </div>
+    <div class="right-buttons-container">
+        <div class="buttons"> 
+            <button class="settings-btn">Settings</button>
+        </div>
+        <div class="buttons"> 
+            <button class="home-btn">Home</button>
+        </div>
+        <div class="buttons"> 
+            <button class="notifications-btn">Notifications</button>
         </div>
     </div>
 
-<script>
-    document.getElementById('profilePicInput').addEventListener('change', function(event) {
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('profileImg').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
+    <script>
+        document.getElementById('profilePicInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profileImg').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
 
         document.getElementById('username').addEventListener('click', function() {
             var newUsername = prompt("Enter new username:");
@@ -219,7 +213,6 @@
                 document.getElementById('username').textContent = newUsername;
             }
         });
-
         document.getElementById('changeProfileBtn').addEventListener('click', function() {
             document.getElementById('profilePicInput').click();
         });
