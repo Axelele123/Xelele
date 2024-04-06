@@ -67,7 +67,6 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        /* Button Styles */
         .buttons button {
             padding: 10px 20px;
             margin: 5px;
@@ -99,11 +98,20 @@
             background-color: #27ae60;
         }
         #backBtn {
-            background-color: #9b59b6;
+            background-image: url('homebtn.png');
+            background-size: cover;
+            padding: 20px 35px; 
+            margin: 5px; 
+            font-size: 20px; 
+            border: none;
+            border-radius: 8px;
+            background-color: #333b41;
             color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         #backBtn:hover {
-            background-color: #8e44ad;
+            background-color:   #8e44ad;;
         }
     </style>
 </head>
@@ -129,7 +137,7 @@
             <button id="markDateBtn">Mark Date</button>
             <button id="removeMarkBtn">Remove Marking</button>
             <button id="submitBtn">Submit</button>
-            <button id="backBtn">Back</button>
+            <button id="backBtn"></button>
         </div>
         <div id="settingsModal" class="modal">
             <div class="modal-content">
@@ -149,7 +157,6 @@
             minDate: "today"
         });
 
-        // Generate Calendar
         const calendarElement = document.getElementById('calendar');
         const today = new Date();
         const currentMonth = today.getMonth();
@@ -214,12 +221,11 @@
             }
         });
 
-        // Submit Settings
+
         document.getElementById('submitBtn').addEventListener('click', function() {
             const markedDates = document.querySelectorAll('.calendar-day .dot');
             const markedDatesArray = Array.from(markedDates).map(dot => dot.parentElement.dataset.date);
             console.log('Marked dates:', markedDatesArray);
-            // Add notification logic here
             markedDatesArray.forEach(date => {
                 const dateObj = new Date(date);
                 const now = new Date();
