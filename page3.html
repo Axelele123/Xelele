@@ -67,7 +67,6 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        /* Button Styles */
         .buttons button {
             padding: 10px 20px;
             margin: 5px;
@@ -158,7 +157,6 @@
             minDate: "today"
         });
 
-        // Generate Calendar
         const calendarElement = document.getElementById('calendar');
         const today = new Date();
         const currentMonth = today.getMonth();
@@ -223,12 +221,11 @@
             }
         });
 
-        // Submit Settings
+
         document.getElementById('submitBtn').addEventListener('click', function() {
             const markedDates = document.querySelectorAll('.calendar-day .dot');
             const markedDatesArray = Array.from(markedDates).map(dot => dot.parentElement.dataset.date);
             console.log('Marked dates:', markedDatesArray);
-            // Add notification logic here
             markedDatesArray.forEach(date => {
                 const dateObj = new Date(date);
                 const now = new Date();
