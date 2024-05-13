@@ -26,11 +26,13 @@
         }
         .container {
             max-width: 800px;
-            margin: 400px auto 0 auto;
+            margin: 200px auto 0 auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            display: flex; 
+            justify-content: space-between; 
         }
         .calendar {
             display: grid;
@@ -112,6 +114,19 @@
         #backBtn:hover {
             background-color:   #8e44ad;;
         }
+        /* CSS untuk tabel */
+        table {
+            width: 300px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +146,26 @@
     </header>
     <div class="container">
         <div class="calendar" id="calendar"></div>
+        <div>
+            <h2>Daftar Pelajaran dan Tugas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pelajaran</th>
+                        <th>Tugas</th>
+                    </tr>
+                </thead>
+                <tbody id="subjectList">
+                    <!-- Daftar pelajaran dan tugas akan ditampilkan di sini -->
+                </tbody>
+            </table>
+            <div id="addSubjectForm">
+                <h3>Tambah Pelajaran dan Tugas</h3>
+                <input type="text" id="subjectName" placeholder="Nama Pelajaran">
+                <input type="text" id="taskDescription" placeholder="Keterangan Tugas">
+                <button id="addSubjectBtn">Tambah</button>
+            </div>
+        </div>
         <div class="buttons">
             <input type="text" id="datepicker" placeholder="Select Date">
             <button id="markDateBtn">Mark Date</button>
@@ -261,6 +296,44 @@
         document.getElementById('backBtn').addEventListener('click', function() {
             window.location.href = 'homepage.html';
         });
+document.getElementById('addSubjectBtn').addEventListener('click', function() {
+    const subjectNameInput = document.getElementById('subjectName').value;
+    const taskDescriptionInput = document.getElementById('taskDescription').value;
+
+    // Buat elemen baru untuk menampilkan data mata pelajaran dan tugas
+    const subjectRow = document.createElement('tr');
+    const subjectNameCell = document.createElement('td');
+    const taskDescriptionCell = document.createElement('td');
+    const deleteButtonCell = document.createElement('td');
+    const deleteButton = document.createElement('button');
+
+    // Tambahkan data mata pelajaran dan tugas ke dalam elemen tersebut
+    subjectNameCell.textContent = subjectNameInput;
+    taskDescriptionCell.textContent = taskDescriptionInput;
+    deleteButton.textContent = 'Hapus';
+
+    // Tambahkan event listener untuk tombol hapus
+    deleteButton.addEventListener('click', function() {
+        // Dapatkan baris data yang ingin dihapus
+        const rowToRemove = this.parentNode.parentNode;
+        // Hapus baris data dari DOM
+        rowToRemove.parentNode.removeChild(rowToRemove);
+    });
+
+    // Tambahkan tombol hapus ke dalam sel tombol hapus
+    deleteButtonCell.appendChild(deleteButton);
+
+    // Tambahkan elemen-elemen ke dalam baris data
+    subjectRow.appendChild(subjectNameCell);
+    subjectRow.appendChild(taskDescriptionCell);
+    subjectRow.appendChild(deleteButtonCell);
+
+    // Tambahkan baris data ke dalam #subjectList
+    document.getElementById('subjectList').appendChild(subjectRow);
+});
+
     </script>
 </body>
 </html>
+
+
