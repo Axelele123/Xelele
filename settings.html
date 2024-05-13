@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaturan</title>
+    <!-- Tambahkan stylesheet dan script yang diperlukan di sini -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Gaya CSS Anda */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #526eb9;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Gaya untuk bagian konten */
+        .content {
+            margin-bottom: 30px;
+        }
+        .content h2 {
+            margin-bottom: 15px;
+            color: #526eb9;
+        }
+        .content p {
+            margin-bottom: 10px;
+        }
+        .content a {
+            color: #2c7e7a;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        /* Gaya untuk tombol */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .primary-button {
+            background-color: #3498db;
+            color: #fff;
+        }
+        .primary-button:hover {
+            background-color: #2980b9;
+        }
+        .secondary-button {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        .secondary-button:hover {
+            background-color: #c0392b;
+        }
+        /* Gaya untuk tabel */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        SCHOLA
+    </header>
+    
+    <!-- Konten -->
+    <div class="container">
+        <!-- Pengaturan Bahasa -->
+        <div class="content">
+            <h2>Ganti Bahasa</h2>
+            <select id="languageSelect">
+                <option value="id">Bahasa Indonesia</option>
+                <option value="en">English</option>
+                <!-- Tambahkan opsi bahasa lainnya sesuai kebutuhan -->
+            </select>
+        </div>
+        
+        <!-- Pengaturan Kata Sandi -->
+        <div class="content">
+            <h2>Ganti Kata Sandi</h2>
+            <form id="passwordForm">
+                <!-- Form untuk mengganti kata sandi -->
+            </form>
+        </div>
+        <div class="content">
+    <h2>Ganti Akun</h2>
+    <form id="accountForm">
+        <!-- Form untuk mengganti akun -->
+    </form>
+    <button class="button secondary-button" onclick="window.location.href='signin.html';">Ganti Akun</button>
+</div>
+        <!-- Kontak WhatsApp -->
+        <div class="content">
+            <h2>Kontak WhatsApp</h2>
+            <p>Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami melalui WhatsApp di nomor berikut:</p>
+            <p>Nomor WhatsApp: <a href="https://api.whatsapp.com/send?phone=6281914783250">081914783250</a></p>
+        </div>
+        
+        <!-- Tombol Kembali -->
+        <div class="content">
+            <button class="button secondary-button" onclick="window.location.href='homepage.html';">Kembali ke Beranda</button>
+        </div>
+    </div>
+
+    <!-- Skrip JavaScript yang Diperlukan -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Skrip JavaScript Anda
+    </script>
+</body>
+</html>
+
