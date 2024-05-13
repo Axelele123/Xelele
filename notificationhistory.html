@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification History Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .notification {
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-left: 5px solid #4caf50; /* Warna hijau untuk notifikasi sukses */
+            transition: all 0.3s ease;
+        }
+
+        .error {
+            border-left-color: #f44336; /* Warna merah untuk notifikasi error */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        button.success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        button.error {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        button.back {
+            background-color: #333;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Riwayat Notifikasi</h2>
+
+        <!-- Area untuk menampilkan riwayat notifikasi -->
+        <ul id="notificationHistory"></ul>
+
+        <!-- Tombol untuk menampilkan notifikasi -->
+        <button class="success" onclick="showNotification('Notifikasi Sukses!', 'success')">Tampilkan Notifikasi Sukses</button>
+        <button class="error" onclick="showNotification('Terjadi Kesalahan!', 'error')">Tampilkan Notifikasi Error</button>
+        
+        <!-- Tombol untuk balik ke homepage -->
+        <button class="back" onclick="window.location.href='homepage.html';">Balik ke Beranda</button>
+    </div>
+
+    <script>
+        function showNotification(message, type) {
+            const notificationHistory = document.getElementById('notificationHistory');
+            const notification = document.createElement('li');
+            notification.textContent = message;
+            notification.classList.add('notification');
+
+            // Menambahkan kelas tambahan sesuai dengan jenis notifikasi (sukses atau error)
+            if (type === 'error') {
+                notification.classList.add('error');
+            }
+
+            notificationHistory.appendChild(notification);
+
+            // Hilangkan notifikasi setelah beberapa detik
+            setTimeout(() => {
+                notification.remove();
+            }, 5000); // Menghilangkan notifikasi setelah 5 detik
+        }
+    </script>
+</body>
+</html>
