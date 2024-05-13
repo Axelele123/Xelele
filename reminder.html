@@ -331,6 +331,55 @@ document.getElementById('addSubjectBtn').addEventListener('click', function() {
     // Tambahkan baris data ke dalam #subjectList
     document.getElementById('subjectList').appendChild(subjectRow);
 });
+// Simpan informasi pelajaran dan tugas terkait dengan tanggal tertentu
+const subjectTasks = {};
+
+document.getElementById('markDateBtn').addEventListener('click', function() {
+    const selectedDate = document.getElementById('datepicker').value;
+    if (selectedDate) {
+        const dayElement = document.querySelector(`.calendar-day[data-date="${selectedDate}"]`);
+        if (dayElement) {
+            if (!dayElement.querySelector('.dot')) {
+                const dotElement = document.createElement('div');
+                dotElement.classList.add('dot');
+                dayElement.appendChild(dotElement);
+
+                // Simpan informasi pelajaran dan tugas terkait dengan tanggal
+                const subjectNameInput = document.getElementById('subjectName').value;
+                const taskDescriptionInput = document.getElementById('taskDescription').value;
+                if (subjectNameInput && taskDescriptionInput) {
+                    if (!subjectTasks[selectedDate]) {
+                        subjectTasks[selectedDate] = [];
+                    }
+                    subjectTasks[selectedDate].push({ subjectName: subjectNameInput, taskDescription: taskDescriptionInput });
+                }
+            } else {
+                dayElement.removeChild(dayElement.querySelector('.dot'));
+            }
+        }
+    } else {
+        alert('Please select a date first.');
+    }
+});
+
+// Tambahkan event listener untuk setiap sel kalender
+document.querySelectorAll('.calendar-day').forEach(cell => {
+    cell.addEventListener('click', function() {
+        const selectedDate = this.dataset.date;
+        const tasks = subjectTasks[selectedDate];
+        if (tasks && tasks.length > 0) {
+            let taskListHTML = '<ul>';
+            tasks.forEach(task => {
+                taskListHTML += `<li><strong>${task.subjectName}</strong>: ${task.taskDescription}</li>`;
+            });
+            taskListHTML += '</ul>';
+            alert(`Pelajaran dan Tugas pada tanggal ${selectedDate}:\n\n${taskListHTML}`);
+        } else {
+            alert(`Tidak ada pelajaran dan tugas pada tanggal ${selectedDate}`);
+        }
+    });
+});
+
 
     </script>
 </body>
